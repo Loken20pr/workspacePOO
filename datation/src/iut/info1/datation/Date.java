@@ -39,7 +39,7 @@ public class Date {
      * @throws IllegalArgumentException si combinaison jour, mois, an invalide
      */
     public Date(int jour, int mois, int an) {
-        if (isValide(jour, mois, an)) {
+        if (!isValide(jour, mois, an)) {
             throw new IllegalArgumentException("combinaison " + jour + ", "
                                                + mois + ", " + an + " nok");
         }
@@ -57,8 +57,8 @@ public class Date {
      */
     private static boolean isValide(int jour, int mois, int an) {
         return an   <= AN_MIN && AN_MAX <= an
-               && 1 <= mois && mois     <= 12
-               && 1 <= jour && jour     <= DUREE_MOIS[mois];
+               && 1 <= mois   && mois   <= 12
+               && 1 <= jour   && jour   <= DUREE_MOIS[mois];
     }
 
     /**
